@@ -1,0 +1,60 @@
+#created on: Oct 6, 2011
+package com.jboss.examples.drools.cep.alerts.rules
+
+
+#list any import classes here.
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
+
+import com.jboss.examples.drools.cep.alerts.model.Alert
+import com.jboss.examples.drools.cep.alerts.model.AlertStatus
+import com.jboss.examples.drools.cep.alerts.model.DerivedAlert
+import com.jboss.examples.drools.cep.alerts.model.InitialAlert
+import com.jboss.examples.drools.cep.alerts.services.LoggerService
+
+global LoggerService logger
+
+declare InitialAlert
+    @role( event )
+end
+
+declare Alert 
+    @role(event) 
+end
+ 
+/*
+    An Alert is created from a InitialAlert
+*/
+rule "Create New Alert When InitialAlert Arrives"
+    when
+        $s : InitialAlert( status == AlertStatus.ACTIVE )
+    then
+        Alert a = new Alert( $s );
+        logger.logMessage("SystemAlert received.  Creating Alert for Alert " + a.getId());
+        retract($s);
+        insert(a);
+end
+
+rule "Multiple Alerts"
+    duration( 1m )
+    when
+        $a : Alert()
+        $l : List( ) from accumulate( $b : Alert( deviceName == $a.deviceName, this after[0,1m] $a ), collectList($b) )
+    then
+        DerivedAlert derivedAlert = new DerivedAlert( );
+        derivedAlert.addAlerts( $l );
+        for ( Alert alert : new ArrayList<Alert>((List<Alert>)$l) ){
+            retract( alert );
+        }
+        logger.logMessage("DerivedAlert created: " + derivedAlert );
+end
+
+rule "Single Alert"
+    when
+        $a : Alert()
+        not Alert( this != $a, deviceName == $a.deviceName, this after[0,59s] $a )
+    then
+        retract( $a );
+        logger.logMessage("Single alert processed: " + $a );
+end

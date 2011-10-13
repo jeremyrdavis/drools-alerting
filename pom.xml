@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jboss.examples.drools.alerting</groupId>
+	<artifactId>drools-alerting</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<brms.home>/share/dotcom/BRMS/BRMS-5.1-GA/brms-deployable-5.1.0/jboss-brms-engine</brms.home>
+		<brms.version>5.1.0.BRMS</brms.version>
+	</properties>
+	<dependencies>
+	<!-- Drools dependencies -->
+	<!-- 
+drools-ant-5.1.0.BRMS.jar
+drools-api-5.1.0.BRMS.jar
+drools-bam-5.1.0.BRMS.jar
+drools-bpmn2-5.1.0.BRMS.jar
+drools-camel-5.1.0.BRMS.jar
+drools-compiler-5.1.0.BRMS.jar
+drools-core-5.1.0.BRMS.jar
+drools-decisiontables-5.1.0.BRMS.jar
+drools-doc-5.1.0.BRMS.jar
+drools-grid-core-5.1.0.BRMS.jar
+drools-jsr94-5.1.0.BRMS.jar
+drools-persistence-jpa-5.1.0.BRMS.jar
+drools-process-task-5.1.0.BRMS.jar
+drools-spring-5.1.0.BRMS.jar
+drools-templates-5.1.0.BRMS.jar
+drools-verifier-5.1.0.BRMS.jar
+drools-workitems-5.1.0.BRMS.jar
+jboss-brms-bulk-importer
+        <dependency>
+            <groupId>drools</groupId>
+            <artifactId>drools-</artifactId>
+            <version>${brms.version}</version>
+            <scope>system</scope>
+            <systemPath>${brms.home}/drools\-\-5.1.0.BRMS.jar</systemPath>
+        </dependency>
+	 -->
+		<dependency>
+			<groupId>drools</groupId>
+			<artifactId>drools-api</artifactId>
+			<version>${brms.version}</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-api-5.1.0.BRMS.jar</systemPath>
+		</dependency>
+        <dependency>
+            <groupId>drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>${brms.version}</version>
+            <scope>system</scope>
+            <systemPath>${brms.home}/drools-core-5.1.0.BRMS.jar</systemPath>
+        </dependency>
+    <!-- Drools dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+	</dependencies>
+</project>
