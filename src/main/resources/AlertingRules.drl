@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.jboss.examples.drools.cep.alerts.model.Alert
-import com.jboss.examples.drools.cep.alerts.model.AlertStatus
-import com.jboss.examples.drools.cep.alerts.model.DerivedAlert
-import com.jboss.examples.drools.cep.alerts.model.InitialAlert
-import com.jboss.examples.drools.cep.alerts.services.LoggerService
+import com.jboss.examples.drools.cep.alerting.model.Alert
+import com.jboss.examples.drools.cep.alerting.model.InitialAlert
+import com.jboss.examples.drools.cep.alerting.model.AlertStatus
+import com.jboss.examples.drools.cep.alerting.model.DerivedAlert
+import com.jboss.examples.drools.cep.alerting.model.InitialAlert
+import com.jboss.examples.drools.cep.alerting.services.LoggerService
 
 global LoggerService logger
 

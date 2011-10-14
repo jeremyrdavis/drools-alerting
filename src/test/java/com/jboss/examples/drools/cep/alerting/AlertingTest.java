@@ -17,9 +17,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.jboss.examples.drools.cep.alerting.model.AlertStatus;
+import com.jboss.examples.drools.cep.alerting.model.InitialAlert;
 import com.jboss.examples.drools.cep.alerting.services.LoggerService;
-import com.jboss.examples.drools.cep.alerts.model.AlertStatus;
-import com.jboss.examples.drools.cep.alerts.model.InitialAlert;
 
 public class AlertingTest extends BaseAlertingTest{
 
