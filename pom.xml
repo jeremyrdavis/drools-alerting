@@ -9,34 +9,7 @@
 		<brms.version>5.1.0.BRMS</brms.version>
 	</properties>
 	<dependencies>
-	<!-- Drools dependencies -->
-	<!-- 
-drools-ant-5.1.0.BRMS.jar
-drools-api-5.1.0.BRMS.jar
-drools-bam-5.1.0.BRMS.jar
-drools-bpmn2-5.1.0.BRMS.jar
-drools-camel-5.1.0.BRMS.jar
-drools-compiler-5.1.0.BRMS.jar
-drools-core-5.1.0.BRMS.jar
-drools-decisiontables-5.1.0.BRMS.jar
-drools-doc-5.1.0.BRMS.jar
-drools-grid-core-5.1.0.BRMS.jar
-drools-jsr94-5.1.0.BRMS.jar
-drools-persistence-jpa-5.1.0.BRMS.jar
-drools-process-task-5.1.0.BRMS.jar
-drools-spring-5.1.0.BRMS.jar
-drools-templates-5.1.0.BRMS.jar
-drools-verifier-5.1.0.BRMS.jar
-drools-workitems-5.1.0.BRMS.jar
-jboss-brms-bulk-importer
-        <dependency>
-            <groupId>drools</groupId>
-            <artifactId>drools-</artifactId>
-            <version>${brms.version}</version>
-            <scope>system</scope>
-            <systemPath>${brms.home}/drools\-\-5.1.0.BRMS.jar</systemPath>
-        </dependency>
-	 -->
+	<!-- Drools jar files -->
         <dependency>
             <groupId>drools</groupId>
             <artifactId>drools-ant</artifactId>
@@ -157,60 +130,6 @@ jboss-brms-bulk-importer
             <systemPath>${brms.home}/jboss-brms-bulk-importer/brms-bulk-importer-1.0.0-SNAPSHOT.jar</systemPath>
         </dependency>
     <!-- Drools dependencies -->
-    <!-- 
-activation-1.1.jar
-ant-1.6.5.jar
-antlr-2.7.6.jar
-antlr-runtime-3.1.3.jar
-ant-nodeps-1.6.5.jar
-camel-core-2.4.0.jar
-camel-cxf-2.4.0.jar
-camel-jaxb-2.4.0.jar
-camel-spring-2.4.0.jar
-camel-test-2.4.0.jar
-camel-xstream-2.4.0.jar
-commons-collections-3.1.jar
-commons-compress-1.0.jar
-commons-exec-1.0.1.jar
-commons-finder-1.0-20080905.033643-1.jar
-commons-io-1.4.jar
-commons-net-2.0.jar
-cxf-bundle-jaxrs-2.2.9.jar
-cxf-rt-frontend-jaxws-2.2.9.jar
-dom4j-1.6.1.jar
-ecj-3.5.1.jar
-google-collections-1.0.jar
-hibernate-annotations-3.3.1.GA.jar
-hibernate-commons-annotations-3.1.0.GA.jar
-hibernate-core-3.3.2.GA.jar
-hibernate-entitymanager-3.3.2.GA.jar
-hornetq-core-2.0.0.GA.jar
-hornetq-transports-2.0.0.GA.jar
-itext-2.1.2.jar
-janino-2.5.15.jar
-javassist-3.4.GA.jar
-jaxb-impl-2.2.1.1.jar
-jaxb-xjc-2.2.1.1.jar
-jboss-seam-2.1.0.GA.jar
-jdom-1.0.jar
-jsr94-1.1.jar
-jta-1.1.jar
-jxl-2.6.10.jar
-mail-1.4.jar
-mina-core-2.0.0-RC1.jar
-mvel2-2.0.16.jar
-netty-3.1.5.GA.jar
-persistence-api-1.0.jar
-rome-0.9.jar
-slf4j-api-1.6.0.jar
-smack-3.0.4.jar
-spring-2.5.6.jar
-spring-beans-2.5.6.jar
-spring-context-2.5.6.jar
-spring-core-2.5.6.jar
-spring-jdbc-2.5.6.jar
-spring-orm-2.5.6.jar
-xstream-1.3.1.jar     -->
         <dependency>
             <groupId>activation</groupId>
             <artifactId>activation</artifactId>
@@ -576,6 +495,11 @@ xstream-1.3.1.jar     -->
             <systemPath>${brms.home}/lib/xstream-1.3.1.jar</systemPath>
         </dependency>
     <!-- Drools dependencies -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.160</version>
+        </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>

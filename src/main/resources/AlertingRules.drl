@@ -12,8 +12,11 @@ import com.jboss.examples.drools.cep.alerting.model.InitialAlert
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus
 import com.jboss.examples.drools.cep.alerting.model.DerivedAlert
 import com.jboss.examples.drools.cep.alerting.model.InitialAlert
+import com.jboss.examples.drools.cep.alerting.services.DataService
 import com.jboss.examples.drools.cep.alerting.services.LoggerService
 
+global DataService dataSvc
+global JMSService jmsSvc
 global LoggerService logger
 
 declare InitialAlert
@@ -31,8 +34,11 @@ rule "Create New Alert When InitialAlert Arrives"
     when
         $s : InitialAlert( status == AlertStatus.ACTIVE )
     then
+        logger.logMessage("InitialAlert received : " + $s );
         Alert a = new Alert( $s );
-        logger.logMessage("SystemAlert received.  Creating Alert for Alert " + a.getId());
+        a.setUpstreamLink( dataSvc.lookupUpstreamLink( a.getDeviceName() ) );
+        a.setDownstreamLink( dataSvc.lookupDownstreamLink( a.getDeviceName() ) );
+        logger.logMessage("InitialAlert received.  Creating Alert for Alert " + a.getId());
         retract($s);
         insert(a);
 end

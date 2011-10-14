@@ -19,6 +19,8 @@ import org.junit.Test;
 
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus;
 import com.jboss.examples.drools.cep.alerting.model.InitialAlert;
+import com.jboss.examples.drools.cep.alerting.services.DataService;
+import com.jboss.examples.drools.cep.alerting.services.JMSService;
 import com.jboss.examples.drools.cep.alerting.services.LoggerService;
 
 public class AlertingTest extends BaseAlertingTest{
@@ -32,6 +34,10 @@ public class AlertingTest extends BaseAlertingTest{
 	public void tearDown() throws Exception {
 	}
 	
+	@Test
+	public void testMultipleNonCorrelatingAlerts(){
+		
+	}
 	
 	@Test
 	public void testAlertingRules(){
@@ -43,10 +49,14 @@ public class AlertingTest extends BaseAlertingTest{
             conf.setOption( ClockTypeOption.get( ClockType.PSEUDO_CLOCK.getId() ) );
             final StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession( conf, null );
             SessionPseudoClock clock = ksession.getSessionClock();
+
+            // set global variables
+            ksession.setGlobal( "dataSvc", new DataService() );
+            ksession.setGlobal( "jmsSvc", new JMSService() );
             ksession.setGlobal( "logger", new LoggerService( clock ) );
             logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
-            // go !
             
+            // go !
             long currentTime = new Date().getTime();
             clock.advanceTime( currentTime, TimeUnit.MILLISECONDS ); // set clock to current timestamp
             
