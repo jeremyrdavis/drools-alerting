@@ -1,11 +1,14 @@
 package com.jboss.examples.drools.cep.alerting.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Alert {
+public class Alert implements Serializable{
+
+	private static final long serialVersionUID = -6083388157960234464L;
 
 	protected String id;
 

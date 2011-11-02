@@ -107,6 +107,12 @@ public class DerivedAlert {
 	public void setAtomicAlertIds(String atomicAlertIds) {
 		this.atomicAlertIds = atomicAlertIds;
 	}
-	
 
+	public List<Alert> getAlerts() {
+		return alerts;
+	}
+
+	public void setAlerts(List<Alert> alerts) {
+		this.alerts = alerts;
+	}
 }

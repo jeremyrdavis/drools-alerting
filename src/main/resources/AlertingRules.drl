@@ -8,15 +8,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.jboss.examples.drools.cep.alerting.model.Alert
+import com.jboss.examples.drools.cep.alerting.model.AlertGroup
 import com.jboss.examples.drools.cep.alerting.model.InitialAlert
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus
 import com.jboss.examples.drools.cep.alerting.model.DerivedAlert
 import com.jboss.examples.drools.cep.alerting.model.InitialAlert
 import com.jboss.examples.drools.cep.alerting.services.DataService
+import com.jboss.examples.drools.cep.alerting.services.AlertingMessageService
 import com.jboss.examples.drools.cep.alerting.services.LoggerService
 
 global DataService dataSvc
-global JMSService jmsSvc
+global AlertingMessageService jmsSvc
 global LoggerService logger
 
 declare InitialAlert
@@ -49,12 +51,13 @@ rule "Multiple Alerts"
         $a : Alert()
         $l : List( ) from accumulate( $b : Alert( deviceName == $a.deviceName, this after[0,1m] $a ), collectList($b) )
     then
-        DerivedAlert derivedAlert = new DerivedAlert( );
-        derivedAlert.addAlerts( $l );
+        AlertGroup alertGroup = new AlertGroup( $a.getDeviceName() );
+        alertGroup.addAlerts( $l );
         for ( Alert alert : new ArrayList<Alert>((List<Alert>)$l) ){
             retract( alert );
         }
-        logger.logMessage("DerivedAlert created: " + derivedAlert );
+        logger.logMessage("AlertGroup created: " + alertGroup );
+        jmsSvc.sendAlertGroup( alertGroup );
 end
 
 rule "Single Alert"
