@@ -46,7 +46,7 @@ public class Alert implements Serializable{
 	 * 
 	 * @param systemAlert
 	 */
-	public Alert(InitialAlert systemAlert) {
+	public Alert(RawAlert systemAlert) {
 		this.id = systemAlert.getId();
 		this.time = systemAlert.getTime();
 		this.deviceName = systemAlert.getDeviceName();

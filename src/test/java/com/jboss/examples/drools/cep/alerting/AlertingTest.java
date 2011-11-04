@@ -21,7 +21,7 @@ import org.junit.Test;
 
 import com.jboss.examples.drools.cep.alerting.model.AlertGroup;
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus;
-import com.jboss.examples.drools.cep.alerting.model.InitialAlert;
+import com.jboss.examples.drools.cep.alerting.model.RawAlert;
 import com.jboss.examples.drools.cep.alerting.services.AlertingMessageService;
 import com.jboss.examples.drools.cep.alerting.services.DataService;
 import com.jboss.examples.drools.cep.alerting.services.JMSService;
@@ -73,10 +73,10 @@ public class AlertingTest extends BaseAlertingTest {
 		knowledgeSession.insert(alertGroup);
 
 		long currentTime = new Date().getTime();
-		InitialAlert[] sa = new InitialAlert[] {
-				new InitialAlert("1", new Date(currentTime), "device1",
+		RawAlert[] sa = new RawAlert[] {
+				new RawAlert("1", new Date(currentTime), "device1",
 						"interface1", AlertStatus.ACTIVE),
-				new InitialAlert("2", new Date(currentTime + 10000), "device1",
+				new RawAlert("2", new Date(currentTime + 10000), "device1",
 						"interface1", AlertStatus.ACTIVE)
 		};
 
@@ -129,16 +129,16 @@ public class AlertingTest extends BaseAlertingTest {
 																	// current
 																	// timestamp
 
-			InitialAlert[] sa = new InitialAlert[] {
-					new InitialAlert("1", new Date(currentTime + 10000),
+			RawAlert[] sa = new RawAlert[] {
+					new RawAlert("1", new Date(currentTime + 10000),
 							"device1", "interface1", AlertStatus.ACTIVE),
-					new InitialAlert("2", new Date(currentTime + 50000),
+					new RawAlert("2", new Date(currentTime + 50000),
 							"device1", "interface1", AlertStatus.ACTIVE),
-					new InitialAlert("3", new Date(currentTime + 90000),
+					new RawAlert("3", new Date(currentTime + 90000),
 							"device1", "interface1", AlertStatus.ACTIVE),
-					new InitialAlert("4", new Date(currentTime + 150000),
+					new RawAlert("4", new Date(currentTime + 150000),
 							"device1", "interface1", AlertStatus.ACTIVE),
-					new InitialAlert("5", new Date(currentTime + 170000),
+					new RawAlert("5", new Date(currentTime + 170000),
 							"device1", "interface1", AlertStatus.ACTIVE) };
 
 			for (int i = 0; i < sa.length; i++) {

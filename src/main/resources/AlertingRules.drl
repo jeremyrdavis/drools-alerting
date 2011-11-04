@@ -9,10 +9,10 @@ import java.util.Date;
 
 import com.jboss.examples.drools.cep.alerting.model.Alert
 import com.jboss.examples.drools.cep.alerting.model.AlertGroup
-import com.jboss.examples.drools.cep.alerting.model.InitialAlert
+import com.jboss.examples.drools.cep.alerting.model.RawAlert
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus
 import com.jboss.examples.drools.cep.alerting.model.DerivedAlert
-import com.jboss.examples.drools.cep.alerting.model.InitialAlert
+import com.jboss.examples.drools.cep.alerting.model.RawAlert
 import com.jboss.examples.drools.cep.alerting.services.DataService
 import com.jboss.examples.drools.cep.alerting.services.AlertingMessageService
 import com.jboss.examples.drools.cep.alerting.services.LoggerService
@@ -21,7 +21,7 @@ global DataService dataSvc
 global AlertingMessageService jmsSvc
 global LoggerService logger
 
-declare InitialAlert
+declare RawAlert
     @role( event )
 end
 
@@ -30,11 +30,11 @@ declare Alert
 end
  
 /*
-    An Alert is created from a InitialAlert
+    An Alert is created from a RawAlert
 */
-rule "Create New Alert When InitialAlert Arrives"
+rule "Create New Alert When RawAlert Arrives"
     when
-        $s : InitialAlert( status == AlertStatus.ACTIVE )
+        $s : RawAlert( status == AlertStatus.ACTIVE )
     then
         logger.logMessage("InitialAlert received : " + $s );
         Alert a = new Alert( $s );
