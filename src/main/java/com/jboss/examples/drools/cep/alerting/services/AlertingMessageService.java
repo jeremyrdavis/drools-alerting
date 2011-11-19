@@ -1,7 +1,7 @@
 package com.jboss.examples.drools.cep.alerting.services;
 
-import com.jboss.examples.drools.cep.alerting.model.Alert;
-import com.jboss.examples.drools.cep.alerting.model.AlertGroup;
+import com.jboss.examples.drools.cep.alerting.model.DeviceAlert;
+import com.jboss.examples.drools.cep.alerting.model.CompoundAlert;
 
 /**
  * Messaging service to handle alerts.
@@ -11,7 +11,7 @@ import com.jboss.examples.drools.cep.alerting.model.AlertGroup;
  */
 public interface AlertingMessageService {
 	
-	public void sendAlert(Alert alertToSend);
+	public void sendAlert(DeviceAlert alertToSend);
 
-	public void sendAlertGroup(AlertGroup alertGroupToSend);
+	public void sendAlertGroup(CompoundAlert alertGroupToSend);
 }

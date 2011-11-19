@@ -20,25 +20,19 @@ public class DeviceAlert implements Serializable{
 
 	protected AlertStatus status;
 
-	protected Link upstreamLink;
-
-	protected Link downstreamLink;
-
 	public DeviceAlert() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public DeviceAlert(Integer id, Date time, String deviceName, String interfaceName,
-			AlertStatus status, Link upstreamLink, Link downstreamLink) {
+			AlertStatus status ) {
 		super();
 		this.id = id;
 		this.time = time;
 		this.deviceName = deviceName;
 		this.interfaceName = interfaceName;
 		this.status = status;
-		this.upstreamLink = upstreamLink;
-		this.downstreamLink = downstreamLink;
 	}
 
 	/**
@@ -55,15 +49,13 @@ public class DeviceAlert implements Serializable{
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(98587971, 810426665).append(id).append(time)
-				.append(deviceName).append(interfaceName).append(status)
-				.append(upstreamLink).append(downstreamLink).toHashCode();
+				.append(deviceName).append(interfaceName).append(status).toHashCode();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("id", id).append("time", time)
-				.append("deviceName", deviceName)
-				.append("upstreamLink", upstreamLink).toString();
+				.append("deviceName", deviceName).toString();
 	}
 
 	// --------------------------------------------------------------------------
@@ -107,22 +99,6 @@ public class DeviceAlert implements Serializable{
 
 	public void setStatus(AlertStatus status) {
 		this.status = status;
-	}
-
-	public Link getUpstreamLink() {
-		return upstreamLink;
-	}
-
-	public void setUpstreamLink(Link upstreamLink) {
-		this.upstreamLink = upstreamLink;
-	}
-
-	public Link getDownstreamLink() {
-		return downstreamLink;
-	}
-
-	public void setDownstreamLink(Link downstreamLink) {
-		this.downstreamLink = downstreamLink;
 	}
 
 }
