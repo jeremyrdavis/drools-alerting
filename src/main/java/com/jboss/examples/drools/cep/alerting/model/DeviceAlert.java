@@ -13,6 +13,8 @@ public class DeviceAlert implements Serializable{
 	protected Integer id;
 
 	protected Date time;
+	
+	protected Device device;
 
 	protected String deviceName;
 
@@ -36,14 +38,15 @@ public class DeviceAlert implements Serializable{
 	}
 
 	/**
-	 * Constructor for use with a SystemAlert.
+	 * Constructor for use with a RawAlert and a Device.
 	 * 
-	 * @param systemAlert
+	 * @param rawAlert
 	 */
-	public DeviceAlert(RawAlert systemAlert) {
-		this.id = systemAlert.getId();
-		this.time = systemAlert.getTime();
-		this.status = systemAlert.getStatus();
+	public DeviceAlert(RawAlert rawAlert, Device deviceToSet) {
+		this.id = rawAlert.getId();
+		this.time = rawAlert.getTime();
+		this.status = rawAlert.getStatus();
+		this.device = deviceToSet;
 	}
 
 	@Override

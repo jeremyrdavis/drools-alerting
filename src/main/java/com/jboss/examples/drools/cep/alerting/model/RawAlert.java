@@ -6,10 +6,11 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * The basic Alert that comes from the external alerting system.
+ * The basic Alert that comes from the external alerting system. This object is
+ * decorated with additional information.
  * 
  * @author Jeremy Davis jeremy.davis@redhat.com
- *
+ * 
  */
 public class RawAlert {
 
@@ -18,11 +19,12 @@ public class RawAlert {
 	protected Date time;
 
 	protected String deviceId;
-	
+
 	protected AlertStatus status;
 
-	public RawAlert(){};
-	
+	public RawAlert() {
+	};
+
 	public RawAlert(Integer id, Date time, String deviceId, AlertStatus status) {
 		super();
 		this.id = id;
@@ -40,13 +42,13 @@ public class RawAlert {
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("id", id).append("time", time)
-				.append("device id", deviceId)
-				.append("status", status).toString();
+				.append("device id", deviceId).append("status", status)
+				.toString();
 	}
 
-	//--------------------------------------------------------------------------
-	//	generated getters and setters
-	//--------------------------------------------------------------------------
+	// --------------------------------------------------------------------------
+	// generated getters and setters
+	// --------------------------------------------------------------------------
 	public Integer getId() {
 		return id;
 	}

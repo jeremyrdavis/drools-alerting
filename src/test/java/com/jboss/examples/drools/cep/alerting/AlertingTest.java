@@ -1,7 +1,7 @@
 package com.jboss.examples.drools.cep.alerting;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -19,14 +19,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.jboss.examples.drools.cep.alerting.model.AlertGroup;
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus;
+import com.jboss.examples.drools.cep.alerting.model.CompoundAlert;
 import com.jboss.examples.drools.cep.alerting.model.RawAlert;
-import com.jboss.examples.drools.cep.alerting.services.AlertingMessageService;
-import com.jboss.examples.drools.cep.alerting.services.DataService;
-import com.jboss.examples.drools.cep.alerting.services.JMSService;
 import com.jboss.examples.drools.cep.alerting.services.LoggerService;
 import com.jboss.examples.drools.cep.alerting.services.impl.MockAlertingMessageService;
+import com.jboss.examples.drools.cep.alerting.services.impl.MockDataService;
 
 public class AlertingTest extends BaseAlertingTest {
 	
@@ -57,7 +55,7 @@ public class AlertingTest extends BaseAlertingTest {
 		SessionPseudoClock clock = knowledgeSession.getSessionClock();
 
 		// set global variables
-		knowledgeSession.setGlobal("dataSvc", new DataService());
+		knowledgeSession.setGlobal("dataSvc", new MockDataService());
 		knowledgeSession.setGlobal("logger", new LoggerService(clock));
 		
 		// set a mock service that we can test after fireAllRules()
@@ -68,16 +66,14 @@ public class AlertingTest extends BaseAlertingTest {
 		logger = KnowledgeRuntimeLoggerFactory.newFileLogger(knowledgeSession, "test");
 
 		// cteate an AlertGroup object to store our results
-		AlertGroup alertGroup = new AlertGroup("test");
+		CompoundAlert alertGroup = new CompoundAlert("test");
 		// insert the AlertGroup into the KnowledgeSession
 		knowledgeSession.insert(alertGroup);
 
 		long currentTime = new Date().getTime();
 		RawAlert[] sa = new RawAlert[] {
-				new RawAlert("1", new Date(currentTime), "device1",
-						"interface1", AlertStatus.ACTIVE),
-				new RawAlert("2", new Date(currentTime + 10000), "device1",
-						"interface1", AlertStatus.ACTIVE)
+				new RawAlert(1, new Date(currentTime), "123", AlertStatus.ACTIVE),
+				new RawAlert(2, new Date(currentTime + 10000), "124", AlertStatus.ACTIVE)
 		};
 
 		
@@ -92,8 +88,8 @@ public class AlertingTest extends BaseAlertingTest {
 		clock.advanceTime(200, TimeUnit.SECONDS);
 		knowledgeSession.fireAllRules();
 
-		assertEquals("The AlertMessagingService should have received a single AlertGroup.", 1, mockJMSSvc.getAlertGroups().size());
-		assertEquals("The AlertGroup should have 2 Alert objects.", 2, (mockJMSSvc.getAlertGroups().get(0)).numberOfAlerts());
+		assertEquals("The AlertMessagingService should have received a single CompoundAlert.", 1, mockJMSSvc.getAlertGroups().size());
+		assertEquals("The CompoundAlert should have 2 Alert objects.", 2, (mockJMSSvc.getAlertGroups().get(0)).numberOfAlerts());
 	}
 
 	@Test
@@ -113,7 +109,7 @@ public class AlertingTest extends BaseAlertingTest {
 			SessionPseudoClock clock = ksession.getSessionClock();
 
 			// set global variables
-			ksession.setGlobal("dataSvc", new DataService());
+			ksession.setGlobal("dataSvc", new MockDataService());
 			
 			ksession.setGlobal("logger", new LoggerService(clock));
 			logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession,
@@ -130,16 +126,16 @@ public class AlertingTest extends BaseAlertingTest {
 																	// timestamp
 
 			RawAlert[] sa = new RawAlert[] {
-					new RawAlert("1", new Date(currentTime + 10000),
-							"device1", "interface1", AlertStatus.ACTIVE),
-					new RawAlert("2", new Date(currentTime + 50000),
-							"device1", "interface1", AlertStatus.ACTIVE),
-					new RawAlert("3", new Date(currentTime + 90000),
-							"device1", "interface1", AlertStatus.ACTIVE),
-					new RawAlert("4", new Date(currentTime + 150000),
-							"device1", "interface1", AlertStatus.ACTIVE),
-					new RawAlert("5", new Date(currentTime + 170000),
-							"device1", "interface1", AlertStatus.ACTIVE) };
+					new RawAlert(1, new Date(currentTime + 10000),
+							"123", AlertStatus.ACTIVE),
+					new RawAlert(2, new Date(currentTime + 50000),
+							"124", AlertStatus.ACTIVE),
+					new RawAlert(3, new Date(currentTime + 90000),
+							"125", AlertStatus.ACTIVE),
+					new RawAlert(4, new Date(currentTime + 150000),
+							"126", AlertStatus.ACTIVE),
+					new RawAlert(5, new Date(currentTime + 170000),
+							"127", AlertStatus.ACTIVE) };
 
 			for (int i = 0; i < sa.length; i++) {
 				clock.advanceTime(

@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.jboss.examples.drools.cep.alerting.model.Alert
-import com.jboss.examples.drools.cep.alerting.model.AlertGroup
+import com.jboss.examples.drools.cep.alerting.model.Device
+import com.jboss.examples.drools.cep.alerting.model.DeviceAlert
+import com.jboss.examples.drools.cep.alerting.model.CompoundAlert
 import com.jboss.examples.drools.cep.alerting.model.RawAlert
 import com.jboss.examples.drools.cep.alerting.model.AlertStatus
-import com.jboss.examples.drools.cep.alerting.model.DerivedAlert
 import com.jboss.examples.drools.cep.alerting.model.RawAlert
 import com.jboss.examples.drools.cep.alerting.services.DataService
 import com.jboss.examples.drools.cep.alerting.services.AlertingMessageService
@@ -25,22 +25,21 @@ declare RawAlert
     @role( event )
 end
 
-declare Alert 
+declare DeviceAlert 
     @role(event) 
 end
  
 /*
-    An Alert is created from a RawAlert
+    An DeviceAlert is created from a RawAlert
 */
-rule "Create New Alert When RawAlert Arrives"
+rule "Create New DeviceAlert When RawAlert Arrives"
     when
         $s : RawAlert( status == AlertStatus.ACTIVE )
     then
-        logger.logMessage("InitialAlert received : " + $s );
-        Alert a = new Alert( $s );
-        a.setUpstreamLink( dataSvc.lookupUpstreamLink( a.getDeviceName() ) );
-        a.setDownstreamLink( dataSvc.lookupDownstreamLink( a.getDeviceName() ) );
-        logger.logMessage("InitialAlert received.  Creating Alert for Alert " + a.getId());
+        logger.logMessage("initial alert received : " + $s );
+        Device $device = dataSvc.lookupDevice( $s.getDeviceId() );
+        DeviceAlert a = new DeviceAlert( $s, $device );
+        logger.logMessage("InitialAlert received.  Creating DeviceAlert for DeviceAlert " + a.getId());
         retract($s);
         insert(a);
 end
@@ -48,12 +47,12 @@ end
 rule "Multiple Alerts"
     duration( 1m )
     when
-        $a : Alert()
-        $l : List( ) from accumulate( $b : Alert( deviceName == $a.deviceName, this after[0,1m] $a ), collectList($b) )
+        $a : DeviceAlert()
+        $l : List( ) from accumulate( $b : DeviceAlert( deviceName == $a.deviceName, this after[0,1m] $a ), collectList($b) )
     then
-        AlertGroup alertGroup = new AlertGroup( $a.getDeviceName() );
+        CompoundAlert alertGroup = new CompoundAlert( $a.getDeviceName() );
         alertGroup.addAlerts( $l );
-        for ( Alert alert : new ArrayList<Alert>((List<Alert>)$l) ){
+        for ( DeviceAlert alert : new ArrayList<DeviceAlert>((List<DeviceAlert>)$l) ){
             retract( alert );
         }
         logger.logMessage("AlertGroup created: " + alertGroup );
@@ -62,8 +61,8 @@ end
 
 rule "Single Alert"
     when
-        $a : Alert()
-        not Alert( this != $a, deviceName == $a.deviceName, this after[0,59s] $a )
+        $a : DeviceAlert()
+        not DeviceAlert( this != $a, deviceName == $a.deviceName, this after[0,59s] $a )
     then
         retract( $a );
         logger.logMessage("Single alert processed: " + $a );
