@@ -5,526 +5,631 @@
 	<artifactId>drools-alerting</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<brms.home>/share/dotcom/BRMS/BRMS-5.1-GA/brms-deployable-5.1.0/jboss-brms-engine</brms.home>
-		<brms.version>5.1.0.BRMS</brms.version>
-        <jar.extension>5.1.0.BRMS</jar.extension>
+		<brms.home>/share/dotcom/BRMS/5.2/brms-p-5.2.0.GA-deployable/jboss-brms-engine/binaries</brms.home>
+		<brms.version>5.2.0.BRMS</brms.version>
+		<jar.extension>5.2.0.BRMS</jar.extension>
 	</properties>
 	<dependencies>
 		<!-- Drools jar files -->
 		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-ant</artifactId>
-			<version>${brms.version}</version>
+			<groupId>ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.8.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/drools-ant-${jar.extension}.jar</systemPath>
+			<systemPath>${brms.home}/ant-1.8.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-api</artifactId>
-			<version>${brms.version}</version>
+			<groupId>ant-launcher</groupId>
+			<artifactId>ant-launcher</artifactId>
+			<version>1.8.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/drools-api-${jar.extension}.jar</systemPath>
+			<systemPath>${brms.home}/ant-launcher-1.8.1.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-bam</artifactId>
-			<version>${brms.version}</version>
-			<systemPath>${brms.home}/drools-bam-${jar.extension}.jar</systemPath>
-			<scope>system</scope>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-bpmn2</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-bpmn2-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-camel</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-camel-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-core</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-core-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-compiler</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-compiler-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-decisiontables</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-decisiontables-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-grid-core</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-grid-core-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-jsr94</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-jsr94-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-persistence-jpa</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-persistence-jpa-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-process-task</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-process-task-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-spring</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-spring-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-templates</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-templates-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-verifier</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-verifier-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>drools</groupId>
-			<artifactId>drools-workitems</artifactId>
-			<version>${brms.version}</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/drools-workitems-${jar.extension}.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>brms</groupId>
-			<artifactId>brms-bulk-importer</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/jboss-brms-bulk-importer/brms-bulk-importer-1.0.0-SNAPSHOT.jar</systemPath>
-		</dependency>
-		<!-- Drools dependencies -->
-		<dependency>
-			<groupId>activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/lib/activation-1.1.jar</systemPath>
-		</dependency>
+
 		<dependency>
 			<groupId>antlr</groupId>
 			<artifactId>antlr</artifactId>
-			<version>2.7.6</version>
+			<version>2.7.7</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/antlr-2.7.6.jar</systemPath>
+			<systemPath>${brms.home}/antlr-2.7.7.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>3.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/antlr-3.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr-runtime</groupId>
 			<artifactId>antlr-runtime</artifactId>
-			<version>3.1.3</version>
+			<version>3.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/antlr-runtime-3.1.3.jar</systemPath>
+			<systemPath>${brms.home}/antlr-runtime-3.3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>ant</groupId>
+			<groupId>ant-nodeps</groupId>
 			<artifactId>ant-nodeps</artifactId>
-			<version>1.6.5</version>
+			<version>1.8.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/ant-nodeps-1.6.5.jar</systemPath>
+			<systemPath>${brms.home}/ant-nodeps-1.8.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-core</artifactId>
-			<version>2.4.0</version>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>1.5.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-core-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/asm-1.5.3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-cxf</artifactId>
-			<version>2.4.0</version>
+			<groupId>asm-attrs</groupId>
+			<artifactId>asm-attrs</artifactId>
+			<version>1.5.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-cxf-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/asm-attrs-1.5.3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-jaxb</artifactId>
-			<version>2.4.0</version>
+			<groupId>bcmail-jdk14</groupId>
+			<artifactId>bcmail-jdk14</artifactId>
+			<version>138</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-jaxb-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/bcmail-jdk14-138.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-spring</artifactId>
-			<version>2.4.0</version>
+			<groupId>bcprov-jdk14</groupId>
+			<artifactId>bcprov-jdk14</artifactId>
+			<version>138</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-spring-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/bcprov-jdk14-138.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-test</artifactId>
-			<version>2.4.0</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.1_3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-test-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/cglib-2.1_3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>camel</groupId>
-			<artifactId>camel-xstream</artifactId>
-			<version>2.4.0</version>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.7.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/camel-xstream-2.4.0.jar</systemPath>
+			<systemPath>${brms.home}/commons-beanutils-1.7.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/commons-codec-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-collections-3.1.jar</systemPath>
+			<systemPath>${brms.home}/commons-collections-3.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
+			<groupId>commons-compress</groupId>
 			<artifactId>commons-compress</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-compress-1.0.jar</systemPath>
+			<systemPath>${brms.home}/commons-compress-1.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
-			<artifactId>commons-exec</artifactId>
-			<version>1.0.1</version>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-exec-1.0.1.jar</systemPath>
+			<systemPath>${brms.home}/commons-dbcp-1.2.2.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
-			<artifactId>commons-finder</artifactId>
-			<version>1.0-20080905.033643-1</version>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-finder-1.0-20080905.033643-1.jar</systemPath>
+			<systemPath>${brms.home}/commons-httpclient-3.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
+			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.4</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-io-1.4.jar</systemPath>
+			<systemPath>${brms.home}/commons-io-1.4.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache</groupId>
-			<artifactId>commons-net</artifactId>
-			<version>2.0</version>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.4</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/commons-net-2.0.jar</systemPath>
+			<systemPath>${brms.home}/commons-logging-1.0.4.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>cxf</groupId>
-			<artifactId>cxf-bundle-jaxrs</artifactId>
-			<version>2.2.9</version>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/cxf-bundle-jaxrs-2.2.9.jar</systemPath>
+			<systemPath>${brms.home}/commons-pool-1.3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>2.2.9</version>
+			<groupId>concurrent</groupId>
+			<artifactId>concurrent</artifactId>
+			<version>1.3.4</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/cxf-rt-frontend-jaxws-2.2.9.jar</systemPath>
+			<systemPath>${brms.home}/concurrent-1.3.4.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.5.3.0_1</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/derby-10.5.3.0_1.jar</systemPath>
+		</dependency>
+
 		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/dom4j-1.6.1.jar</systemPath>
+			<systemPath>${brms.home}/dom4j-1.6.1.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>drools-ant</groupId>
+			<artifactId>drools-ant</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-ant-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-compiler</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-compiler-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-core</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-core-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-decisiontables</groupId>
+			<artifactId>drools-decisiontables</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-decisiontables-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>droolsjbpm-ide-common</groupId>
+			<artifactId>droolsjbpm-ide-common</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/droolsjbpm-ide-common-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-jsr</groupId>
+			<artifactId>drools-jsr</artifactId>
+			<version>94</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-jsr94-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-persistence-jpa</groupId>
+			<artifactId>drools-persistence-jpa</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-persistence-jpa-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-templates</groupId>
+			<artifactId>drools-templates</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-templates-${brms.version}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>drools-verifier</groupId>
+			<artifactId>drools-verifier</artifactId>
+			<version>5.2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/drools-verifier-${brms.version}.jar</systemPath>
+		</dependency>
+
 		<dependency>
 			<groupId>ecj</groupId>
 			<artifactId>ecj</artifactId>
 			<version>3.5.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/ecj-3.5.1.jar</systemPath>
+			<systemPath>${brms.home}/ecj-3.5.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>google</groupId>
+			<groupId>ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.2.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/ehcache-1.2.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>ejb3-persistence</groupId>
+			<artifactId>ejb3-persistence</artifactId>
+			<version>1.0.1.GA</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/ejb3-persistence-1.0.1.GA.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.15</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/freemarker-2.3.15.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>geronimo-stax-api</groupId>
+			<artifactId>geronimo-stax-api</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/geronimo-stax-api_1.0_spec-1.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>google-collections</groupId>
 			<artifactId>google-collections</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/google-collections-1.0.jar</systemPath>
+			<systemPath>${brms.home}/google-collections-1.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.6.ga</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/hibernate-3.2.6.ga.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>hibernate-annotations</groupId>
 			<artifactId>hibernate-annotations</artifactId>
-			<version>3.3.1.GA</version>
+			<version>3.3.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hibernate-annotations-3.3.1.GA.jar</systemPath>
+			<systemPath>${brms.home}/hibernate-annotations-3.3.1.GA.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>hibernate</groupId>
+			<groupId>hibernate-commons-annotations</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>3.1.0.GA</version>
+			<version>3.1.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hibernate-commons-annotations-3.1.0.GA.jar</systemPath>
+			<systemPath>${brms.home}/hibernate-commons-annotations-3.1.0.GA.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>hibernate</groupId>
+			<groupId>hibernate-core</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>3.3.2.GA</version>
+			<version>3.3.2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hibernate-core-3.3.2.GA.jar</systemPath>
+			<systemPath>${brms.home}/hibernate-core-3.3.2.GA.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>hibernate</groupId>
+			<groupId>hibernate-entitymanager</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.3.2.GA</version>
+			<version>3.3.2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hibernate-entitymanager-3.3.2.GA.jar</systemPath>
+			<systemPath>${brms.home}/hibernate-entitymanager-3.3.2.GA.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>hornetq</groupId>
-			<artifactId>hornetq-core</artifactId>
-			<version>2.0.0.GA</version>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hornetq-core-2.0.0.GA.jar</systemPath>
+			<systemPath>${brms.home}/hsqldb-1.8.0.10.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>hornetq</groupId>
-			<artifactId>hornetq-transports</artifactId>
-			<version>2.0.0.GA</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/lib/hornetq-transports-2.0.0.GA.jar</systemPath>
-		</dependency>
+
 		<dependency>
 			<groupId>itext</groupId>
 			<artifactId>itext</artifactId>
 			<version>2.1.2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/itext-2.1.2.jar</systemPath>
+			<systemPath>${brms.home}/itext-2.1.2.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>janino</groupId>
-			<artifactId>janino</artifactId>
-			<version>2.5.15</version>
+			<groupId>jackrabbit-api</groupId>
+			<artifactId>jackrabbit-api</artifactId>
+			<version>2.1.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/janino-2.5.15.jar</systemPath>
+			<systemPath>${brms.home}/jackrabbit-api-2.1.3.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>jackrabbit-core</groupId>
+			<artifactId>jackrabbit-core</artifactId>
+			<version>2.1.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/jackrabbit-core-2.1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackrabbit-jcr-commons</groupId>
+			<artifactId>jackrabbit-jcr-commons</artifactId>
+			<version>2.1.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/jackrabbit-jcr-commons-2.1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackrabbit-spi</groupId>
+			<artifactId>jackrabbit-spi</artifactId>
+			<version>2.1.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/jackrabbit-spi-2.1.3-.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackrabbit-spi-commons</groupId>
+			<artifactId>jackrabbit-spi-commons</artifactId>
+			<version>2.1.3</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/jackrabbit-spi-commons-2.1.3.jar</systemPath>
+		</dependency>
+
 		<dependency>
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
-			<version>3.4.GA</version>
+			<version>3.12.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/javassist-3.4.GA.jar</systemPath>
+			<systemPath>${brms.home}/javassist-3.12.0.GA.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>jaxb</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.1.1</version>
+			<groupId>jbpm-flow</groupId>
+			<artifactId>jbpm-flow</artifactId>
+			<version>5.2.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jaxb-impl-2.2.1.1.jar</systemPath>
+			<systemPath>${brms.home}/jbpm-flow-${brms.version}.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>jaxb</groupId>
-			<artifactId>jaxb-xjc</artifactId>
-			<version>2.2.1.1</version>
+			<groupId>jbpm-flow-builder</groupId>
+			<artifactId>jbpm-flow-builder</artifactId>
+			<version>5.2.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jaxb-xjc-2.2.1.1.jar</systemPath>
+			<systemPath>${brms.home}/jbpm-flow-builder-${brms.version}.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>seam</groupId>
-			<artifactId>jboss-seam</artifactId>
-			<version>2.1.0.GA</version>
+			<groupId>jbpm-persistence-jpa</groupId>
+			<artifactId>jbpm-persistence-jpa</artifactId>
+			<version>5.2.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jboss-seam-2.1.0.GA.jar</systemPath>
+			<systemPath>${brms.home}/jbpm-persistence-jpa-${brms.version}.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>jdom</groupId>
-			<artifactId>jdom</artifactId>
-			<version>1.0</version>
+			<groupId>jcl-over-slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.5.8</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jdom-1.0.jar</systemPath>
+			<systemPath>${brms.home}/jcl-over-slf4j-1.5.8.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<version>2.0</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/jcr-2.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/joda-time-1.6.jar</systemPath>
+		</dependency>
+
 		<dependency>
 			<groupId>jsr94</groupId>
 			<artifactId>jsr94</artifactId>
 			<version>1.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jsr94-1.1.jar</systemPath>
+			<systemPath>${brms.home}/jsr94-1.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>jta</groupId>
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jta-1.1.jar</systemPath>
+			<systemPath>${brms.home}/jta-1.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>jxl-2.6.10.jar</groupId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/junit-4.8.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jxl</groupId>
 			<artifactId>jxl</artifactId>
 			<version>2.6.10</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/jxl-2.6.10.jar</systemPath>
+			<systemPath>${brms.home}/jxl-2.6.10.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4</version>
+			<groupId>knowledge-api</groupId>
+			<artifactId>knowledge-api</artifactId>
+			<version>5.2.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/mail-1.4.jar</systemPath>
+			<systemPath>${brms.home}/knowledge-api-${brms.version}.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>mina</groupId>
-			<artifactId>mina-core</artifactId>
-			<version>2.0.0-RC1</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/mina-core-2.0.0-RC1.jar</systemPath>
+			<systemPath>${brms.home}/log4j-1.2.14.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>org.mvel</groupId>
+			<groupId>lucene-core</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>2.4.1</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/lucene-core-2.4.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>metadata-extractor</groupId>
+			<artifactId>metadata-extractor</artifactId>
+			<version>2.4.0-beta-1</version>
+			<scope>system</scope>
+			<systemPath>${brms.home}/metadata-extractor-2.4.0-beta-1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>mvel2</groupId>
 			<artifactId>mvel2</artifactId>
-			<version>2.0.16</version>
+			<version>2.1.Beta6</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/mvel2-2.0.16.jar</systemPath>
+			<systemPath>${brms.home}/mvel2-2.1.Beta6.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>netty</groupId>
-			<artifactId>netty</artifactId>
-			<version>3.1.5.GA</version>
-			<scope>system</scope>
-			<systemPath>${brms.home}/lib/netty-3.1.5.GA.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>persistence</groupId>
+			<groupId>persistence-api</groupId>
 			<artifactId>persistence-api</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/persistence-api-1.0.jar</systemPath>
+			<systemPath>${brms.home}/persistence-api-1.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>rome</groupId>
-			<artifactId>rome</artifactId>
-			<version>0.9</version>
+			<groupId>servlet-api</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/rome-0.9.jar</systemPath>
+			<systemPath>${brms.home}/servlet-api-2.3.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>slf4j</groupId>
+			<groupId>slf</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/slf4j-api-1.6.0.jar</systemPath>
+			<systemPath>${brms.home}/slf4j-api-1.6.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>smack</groupId>
-			<artifactId>smack</artifactId>
-			<version>3.0.4</version>
+			<groupId>slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.0</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/smack-3.0.4.jar</systemPath>
+			<systemPath>${brms.home}/slf4j-log4j12-1.6.0.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring</artifactId>
-			<version>2.5.6</version>
+			<groupId>stringtemplate</groupId>
+			<artifactId>stringtemplate</artifactId>
+			<version>3.2.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/stringtemplate-3.2.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>2.5.6</version>
+			<groupId>tagsoup</groupId>
+			<artifactId>tagsoup</artifactId>
+			<version>1.2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-beans-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/tagsoup-1.2.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>2.5.6</version>
+			<groupId>tika-core</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>0.6</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-context-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/tika-core-0.6.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>2.5.6</version>
+			<groupId>tika-parsers</groupId>
+			<artifactId>tika-parsers</artifactId>
+			<version>0.6</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-core-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/tika-parsers-0.6.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>2.5.6</version>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.0.b2</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-jdbc-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/xml-apis-1.0.b2.jar</systemPath>
 		</dependency>
+
 		<dependency>
-			<groupId>spring</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>2.5.6</version>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3_min</artifactId>
+			<version>1.1.4c</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/spring-orm-2.5.6.jar</systemPath>
+			<systemPath>${brms.home}/xpp3_min-1.1.4c.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>xstream</groupId>
 			<artifactId>xstream</artifactId>
-			<version>1.1.3</version>
+			<version>1.3.1</version>
 			<scope>system</scope>
-			<systemPath>${brms.home}/lib/xstream-1.3.1.jar</systemPath>
-		</dependency>
-		<!-- Drools dependencies -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.160</version>
+			<systemPath>${brms.home}/xstream-1.3.1.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.btm</groupId>
-			<artifactId>btm</artifactId>
-			<version>2.1.2</version>
+			<version>2.3</version>
 		</dependency>
 	</dependencies>
 </project>
